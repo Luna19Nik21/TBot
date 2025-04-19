@@ -1,29 +1,217 @@
 import telebot
-from telebot import types
-API_KEY="7295229682:AAFFcHBHkTjBlDdhGgiUBrRdsjAE_9nSEQQ"
-# pip install pyTelegramBotAPI 
-bot=telebot.TeleBot(API_KEY)
-@bot.message_handler(commands=["start"])
-def start(message:types.Message):
-    chat_id=message.chat.id
-    markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
-    btn1=types.KeyboardButton("Привет")
-    btn2=types.KeyboardButton("Пока")
-    markup.add(btn1)
-    markup.add(btn2)
-    bot.send_message(chat_id,"Что скажешь?",reply_markup=markup)
-@bot.message_handler(content_types=["text","sticker"])
-def handler_text(message:types.Message):
-    print(message)
-    chat_id=message.chat.id
-    if message.text=="Привет":
-        bot.send_message(chat_id,"Приветствую")
-    elif message.text=="Пока":
-        bot.send_message(chat_id,"Пока")
-        bot.send_photo(chat_id,open("./Yoh_Asakura.jpg","rb"))
-        bot.send_sticker(chat_id,"CAACAgEAAxkBAAMeZ_DjbiJmMif30O8wwFZH9vKgOHQAAnUBAAJ9dRFE-18T16hHhnQ2BA")
-    elif message.content_type=="sticker":
-        bot.send_message(chat_id,f"ID твоего стикера:{message.sticker.file_id}")
+import datetime
+bot=telebot.TeleBot('7295229682:AAFFcHBHkTjBlDdhGgiUBrRdsjAE_9nSEQQ')
+now=datetime.datetime.now()
 
-print("***бот запущен***")
+@bot.message_handler(content_types=["text"])
+def dialog(message):
+    today=now.day
+    hour=now.hour
+    if message.text=="привет" :
+        if today==now.day and 6<=hour<12:
+            bot.send_message(message.chat.id, "Приветствую \n")
+                                             "по моим рассчётам,у вас сейчас утро"
+        elif today==now.day and 12<=hour<17:
+            bot.send_message(message.chat.id, "Приветствую \n")
+    elif message.text=="Как у тебя дела?":
+        bot.send_message(message.chat.id,"У меня всё хорошо,а у тебя?")
+    elif message.text=="Привет":
+        bot.send_message(message.chat.id, "Приветствую")
+    elif message.text=="прив":
+        bot.send_message(message.chat.id, "Приветствую")
+    elif message.text == "Прив":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text=="ПрИвЕт":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "пРиВеТ":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Hi":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "hi":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Hello":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "hello":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "привет.":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Привет.":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "прив.":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Прив.":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "ПрИвЕт.":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "пРиВеТ.":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Hi.":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "hi.":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Hello.":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "hello.":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "привет!":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Привет!":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "прив!":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Прив!":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "ПрИвЕт!":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "пРиВеТ!":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Hi!":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "hi!":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Hello!":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "hello!":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "привет^^":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Привет^^":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "прив^^":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Прив^^":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "ПрИвЕт^^":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "пРиВеТ^^":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Hi^^":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "hi^^":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Hello^^":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "hello^^":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Приветствую":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "приветствую":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Приветствую.":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "приветствую.":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Приветствую!":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "приветствую!":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "Приветствую^^":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    elif message.text == "приветствую^^":
+        bot.send_message(message.chat.id, "Приветствую")
+        if message.text == "Как у тебя дела?":
+            bot.send_message(message.chat.id, "У меня всё хорошо,а у тебя?")
+    else:
+       bot.send_message(message.chat.id, "?")
+
+
 bot.infinity_polling()
+
+
+
+
+
+
+
+
+
+
+
